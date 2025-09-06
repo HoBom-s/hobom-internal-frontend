@@ -1,4 +1,4 @@
-import { ManageDashboard } from "../../features/manage-dashboard";
+import { ManageDashboard } from "../../../features/manage-dashboard";
 
 const DashboardPage = () => {
   return <ManageDashboard />;

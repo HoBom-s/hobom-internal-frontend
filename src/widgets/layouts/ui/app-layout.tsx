@@ -1,6 +1,6 @@
 import { Box, useTheme } from "@mui/material";
-import { AppHeader } from "@/widgets/app-header/app-header";
-import { AppSidebar } from "@/widgets/app-sidebar/app-sidebar";
+import { AppHeader } from "@/widgets/layouts/ui/app-header";
+import { AppSidebar } from "@/widgets/layouts/ui/app-sidebar";
 import { Outlet } from "react-router-dom";
 import { useLayout } from "@/app/providers/layout-provider";
 
