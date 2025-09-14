@@ -1,4 +1,4 @@
-import { SearchData } from "../../features/search-data";
+import { SearchData } from "@/features/search-data";
 
 const SearchPage = () => {
   return <SearchData />;

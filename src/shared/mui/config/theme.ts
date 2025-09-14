@@ -1,127 +1,171 @@
 import { createTheme } from "@mui/material/styles";
+import { components } from "./override";
 
-// 키바나 스타일을 반영한 다크 테마 생성
-export const theme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#1976d2",
-      light: "#42a5f5",
-      dark: "#121212",
-      contrastText: "#ffffff",
-    },
-    secondary: {
-      main: "#f50057",
-      light: "#ff5983",
-      dark: "#bb002f",
-    },
-    background: {
-      default: "#121212",
-      paper: "#1e1e1e",
-    },
-    text: {
-      primary: "#ffffff",
-      secondary: "#b3b3b3",
-    },
-    divider: "#333333",
-    error: {
-      main: "#f44336",
-    },
-    warning: {
-      main: "#ff9800",
-    },
-    info: {
-      main: "#2196f3",
-    },
-    success: {
-      main: "#4caf50",
-    },
+// 다크 테마 색상 팔레트 정의
+const palette = {
+  mode: "dark" as const,
+  primary: {
+    main: "#233043",
+    light: "#4882da",
+    dark: "#1b2635",
+    contrastText: "#ffffff",
   },
+  secondary: {
+    main: "#10B981",
+    light: "#34D399",
+    dark: "#059669",
+    contrastText: "#ffffff",
+  },
+  error: {
+    main: "#EF4444",
+    light: "#F87171",
+    dark: "#DC2626",
+    contrastText: "#ffffff",
+  },
+  warning: {
+    main: "#F59E0B",
+    light: "#FBBF24",
+    dark: "#D97706",
+    contrastText: "#ffffff",
+  },
+  info: {
+    main: "#3B82F6",
+    light: "#60A5FA",
+    dark: "#2563EB",
+    contrastText: "#ffffff",
+  },
+  success: {
+    main: "#10B981",
+    light: "#34D399",
+    dark: "#059669",
+    contrastText: "#ffffff",
+  },
+  background: {
+    default: "#0F172A",
+    paper: "#1E293B",
+  },
+  text: {
+    primary: "#F8FAFC",
+    secondary: "#CBD5E1",
+  },
+  divider: "#334155",
+  grey: {
+    50: "#F8FAFC",
+    100: "#F1F5F9",
+    200: "#E2E8F0",
+    300: "#CBD5E1",
+    400: "#94A3B8",
+    500: "#64748B",
+    600: "#475569",
+    700: "#334155",
+    800: "#1E293B",
+    900: "#0F172A",
+  },
+};
+
+// MUI 테마 생성
+export const theme = createTheme({
+  palette,
   typography: {
-    fontFamily: "Pretendard, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontFamily:
+      '"Inter", "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
     h1: {
-      fontSize: "2.5rem",
       fontWeight: 700,
+      fontSize: "2.5rem",
+      color: "#F8FAFC",
     },
     h2: {
-      fontSize: "2rem",
       fontWeight: 600,
+      fontSize: "2rem",
+      color: "#F8FAFC",
     },
     h3: {
-      fontSize: "1.75rem",
       fontWeight: 600,
+      fontSize: "1.5rem",
+      color: "#F8FAFC",
     },
     h4: {
-      fontSize: "1.5rem",
       fontWeight: 600,
+      fontSize: "1.25rem",
+      color: "#F8FAFC",
     },
     h5: {
-      fontSize: "1.25rem",
       fontWeight: 500,
+      fontSize: "1.125rem",
+      color: "#F8FAFC",
     },
     h6: {
-      fontSize: "1rem",
       fontWeight: 500,
+      fontSize: "1rem",
+      color: "#F8FAFC",
     },
     body1: {
       fontSize: "1rem",
-      lineHeight: 1.5,
+      color: "#CBD5E1",
     },
     body2: {
       fontSize: "0.875rem",
-      lineHeight: 1.4,
+      color: "#94A3B8",
     },
   },
+  shape: {
+    borderRadius: 12,
+  },
   components: {
-    MuiDrawer: {
+    ...components,
+    MuiCssBaseline: {
       styleOverrides: {
-        paper: {
-          backgroundColor: "#1e1e1e",
-          borderRight: "1px solid #333333",
+        body: {
+          backgroundColor: palette.primary.dark,
+          color: "#F8FAFC",
         },
       },
     },
-    MuiAppBar: {
+    MuiTab: {
       styleOverrides: {
         root: {
-          backgroundColor: "#1e1e1e",
-          borderBottom: "1px solid #333333",
+          "&:focus, &:focus-visible": {
+            outline: "none",
+            boxShadow: "none",
+          },
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: "#1e1e1e",
-          border: "1px solid #333333",
+          backgroundColor: "#1E293B",
+          border: "1px solid #334155",
+          borderRadius: 12,
+          boxShadow:
+            "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
         },
       },
     },
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: "#1e1e1e",
+          backgroundColor: "#1E293B",
+          border: "1px solid #334155",
         },
       },
     },
-    MuiDataGrid: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: "#1E293B",
+          borderRight: "1px solid #334155",
+        },
+      },
+    },
+    MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#1e1e1e",
-          border: "1px solid #333333",
-          "& .MuiDataGrid-cell": {
-            borderColor: "#333333",
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: "#2d2d2d",
-            borderColor: "#333333",
-          },
-          "& .MuiDataGrid-footerContainer": {
-            backgroundColor: "#2d2d2d",
-            borderColor: "#333333",
-          },
+          backgroundColor: "#1E293B",
+          borderBottom: "1px solid #334155",
         },
       },
     },
+    // Note: MuiDataGrid styles are handled separately in each component
   },
 });

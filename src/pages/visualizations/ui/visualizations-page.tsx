@@ -1,4 +1,4 @@
-import { ManageVisualizations } from "../../features/manage-visualizations";
+import { ManageVisualizations } from "@/features/manage-visualizations";
 
 const VisualizationsPage = () => {
   return <ManageVisualizations />;

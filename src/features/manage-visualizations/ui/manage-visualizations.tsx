@@ -127,7 +127,7 @@ export const ManageVisualizations = () => {
             >
               <CardContent sx={{ flexGrow: 1 }}>
                 <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                  <Box sx={{ color: "primary.main", mr: 2 }}>{viz.icon}</Box>
+                  <Box sx={{ color: "secondary.main", mr: 2 }}>{viz.icon}</Box>
                   <Box sx={{ flexGrow: 1 }}>
                     <Typography variant="h6" sx={{ fontWeight: 600 }}>
                       {viz.title}
@@ -197,7 +197,9 @@ export const ManageVisualizations = () => {
                   },
                 }}
               >
-                <Box sx={{ color: "primary.main", mb: 1 }}>{template.icon}</Box>
+                <Box sx={{ color: "secondary.main", mb: 1 }}>
+                  {template.icon}
+                </Box>
                 <Typography variant="body2">{template.name}</Typography>
               </Paper>
             </Grid>

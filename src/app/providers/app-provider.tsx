@@ -1,16 +1,21 @@
 import { createElement } from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { type RouteObject } from "react-router-dom";
-import { theme } from "@/shared/config/mui/theme";
+import { theme } from "@/shared/mui/config/theme";
 import { CustomRouter } from "@/shared/router";
 import { routesConfig } from "@/shared/router/config/routes";
-import { AppLayout } from "@/app/layouts/app-layout";
+import { AppLayout } from "@/widgets/layouts/ui/app-layout";
 import { LayoutProvider } from "@/app/providers/layout-provider";
 import {
   DashboardPage,
   SearchPage,
   VisualizationsPage,
   IndexManagementPage,
+  EmailDashboardPage,
+  EmailNotificationPage,
+  PushNotificationPage,
+  HistoryPage,
+  NotificationManagementPage,
 } from "@/pages";
 
 // 컴포넌트 맵핑
@@ -20,6 +25,11 @@ const componentMap = {
   SearchPage,
   VisualizationsPage,
   IndexManagementPage,
+  EmailDashboardPage,
+  EmailNotificationPage,
+  PushNotificationPage,
+  HistoryPage,
+  NotificationManagementPage,
 } as const;
 
 // 라우트 설정을 실제 RouteObject로 변환

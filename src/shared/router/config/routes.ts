@@ -11,6 +11,7 @@ export const routesConfig = [
         index: true,
         pageKey: "DashboardPage",
       },
+      // Analytics Hub routes
       {
         path: RoutesConfig.MAIN.ANALYTICS.OVERVIEW,
         pageKey: "AnalyticsOverviewPage",
@@ -26,6 +27,27 @@ export const routesConfig = [
       {
         path: RoutesConfig.MAIN.ANALYTICS.INDEX_MANAGEMENT,
         pageKey: "IndexManagementPage",
+      },
+      // Email Management routes
+      {
+        path: RoutesConfig.MAIN.EMAIL_MANAGEMENT.DASHBOARD,
+        pageKey: "EmailDashboardPage",
+      },
+      {
+        path: RoutesConfig.MAIN.EMAIL_MANAGEMENT.NOTIFICATIONS_MANAGEMENT,
+        pageKey: "NotificationManagementPage",
+      },
+      {
+        path: RoutesConfig.MAIN.EMAIL_MANAGEMENT.EMAIL_NOTIFICATIONS,
+        pageKey: "EmailNotificationPage",
+      },
+      {
+        path: RoutesConfig.MAIN.EMAIL_MANAGEMENT.PUSH_NOTIFICATIONS,
+        pageKey: "PushNotificationPage",
+      },
+      {
+        path: RoutesConfig.MAIN.EMAIL_MANAGEMENT.HISTORY,
+        pageKey: "HistoryPage",
       },
     ],
   },

@@ -2,7 +2,8 @@ import { Box, Tabs, Tab, Typography } from "@mui/material";
 import { useState } from "react";
 import { DashboardOverview } from "../../../widgets/dashboard-overview/dashboard-overview";
 import { DashboardStats } from "../../../widgets/dashboard-stats/dashboard-stats";
-import { KibanaVisualizations } from "../../../widgets/kibana-visualizations/kibana-visualizations";
+import { EmailHistoryTable } from "../../view-email-history";
+import { PushHistoryTable } from "../../view-push-history";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -17,25 +18,9 @@ const TabPanel = ({ children, value, index, ...other }: TabPanelProps) => {
       hidden={value !== index}
       id={`dashboard-tabpanel-${index}`}
       aria-labelledby={`dashboard-tab-${index}`}
-      style={{
-        height: value === index ? "100%" : "auto",
-        flexGrow: value === index ? 1 : 0,
-        overflow: value === index ? "hidden" : "visible",
-      }}
       {...other}
     >
-      {value === index && (
-        <Box
-          sx={{
-            height: "100%",
-            width: "100%",
-            maxWidth: "100%",
-            boxSizing: "border-box",
-          }}
-        >
-          {children}
-        </Box>
-      )}
+      {value === index && <Box>{children}</Box>}
     </div>
   );
 };
@@ -47,7 +32,7 @@ const a11yProps = (index: number) => {
   };
 };
 
-export const ManageDashboard = () => {
+export const DashboardManagement = () => {
   const [tabValue, setTabValue] = useState(0);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
@@ -55,47 +40,30 @@ export const ManageDashboard = () => {
   };
 
   return (
-    <Box
-      sx={{
-        minWidth: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        maxWidth: "100%",
-        boxSizing: "border-box",
-      }}
-    >
+    <Box sx={{ width: "100%", height: "100%" }}>
       <Box
         sx={{
           borderBottom: 1,
           borderColor: "divider",
           backgroundColor: "background.paper",
-          px: { xs: 2, sm: 3 },
-          pt: { xs: 1.5, sm: 2 },
-          flexShrink: 0,
+          px: 3,
+          pt: 2,
         }}
       >
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 700,
-            mb: { xs: 1.5, sm: 2 },
-            fontSize: "1.5rem",
-          }}
-        >
-          키바나 대시보드
+        <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
+          대시보드 관리
         </Typography>
 
         <Tabs
           value={tabValue}
           onChange={handleTabChange}
-          aria-label="kibana dashboard tabs"
+          aria-label="dashboard management tabs"
           sx={{
             "& .MuiTab-root": {
               textTransform: "none",
-              fontSize: { xs: "0.875rem", sm: "1rem" },
+              fontSize: "1rem",
               fontWeight: 600,
-              minWidth: { xs: 80, sm: 120 },
+              minWidth: 120,
               color: "text.secondary",
               borderRadius: 1,
               mx: 0.5,
@@ -117,7 +85,8 @@ export const ManageDashboard = () => {
         >
           <Tab label="개요" {...a11yProps(0)} />
           <Tab label="통계" {...a11yProps(1)} />
-          <Tab label="시각화" {...a11yProps(2)} />
+          <Tab label="이메일 내역" {...a11yProps(2)} />
+          <Tab label="푸시 내역" {...a11yProps(3)} />
         </Tabs>
       </Box>
 
@@ -126,14 +95,18 @@ export const ManageDashboard = () => {
       </TabPanel>
 
       <TabPanel value={tabValue} index={1}>
-        <Box sx={{ height: "100%", overflow: "auto" }}>
-          <DashboardStats />
-        </Box>
+        <DashboardStats />
       </TabPanel>
 
       <TabPanel value={tabValue} index={2}>
-        <Box sx={{ height: "100%", overflow: "auto" }}>
-          <KibanaVisualizations />
+        <Box sx={{ p: 3 }}>
+          <EmailHistoryTable />
+        </Box>
+      </TabPanel>
+
+      <TabPanel value={tabValue} index={3}>
+        <Box sx={{ p: 3 }}>
+          <PushHistoryTable />
         </Box>
       </TabPanel>
     </Box>

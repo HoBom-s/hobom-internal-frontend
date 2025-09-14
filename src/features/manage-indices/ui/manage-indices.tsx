@@ -126,14 +126,16 @@ export const ManageIndices = () => {
   };
 
   return (
-    <Box sx={{ 
-      p: { xs: 1.5, sm: 2, md: 3 },
-      width: "100%",
-      height: "100%",
-      maxWidth: "100%",
-      boxSizing: "border-box",
-      overflow: "auto"
-    }}>
+    <Box
+      sx={{
+        p: { xs: 1.5, sm: 2, md: 3 },
+        width: "100%",
+        height: "100%",
+        maxWidth: "100%",
+        boxSizing: "border-box",
+        overflow: "auto",
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -144,25 +146,25 @@ export const ManageIndices = () => {
           gap: { xs: 2, sm: 0 },
         }}
       >
-        <Typography 
-          variant="h4" 
-          sx={{ 
+        <Typography
+          variant="h4"
+          sx={{
             fontWeight: 700,
-            fontSize: { xs: "1.5rem", sm: "2rem", md: "2.125rem" }
+            fontSize: { xs: "1.5rem", sm: "2rem", md: "2.125rem" },
           }}
         >
           인덱스 관리
         </Typography>
         <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-          <Button 
-            variant="outlined" 
+          <Button
+            variant="outlined"
             startIcon={<Refresh />}
             sx={{ fontSize: { xs: "0.875rem", sm: "1rem" } }}
           >
             새로고침
           </Button>
-          <Button 
-            variant="contained" 
+          <Button
+            variant="contained"
             startIcon={<Add />}
             sx={{ fontSize: { xs: "0.875rem", sm: "1rem" } }}
           >
@@ -172,34 +174,38 @@ export const ManageIndices = () => {
       </Box>
 
       {/* 상태 요약 */}
-      <Box sx={{ 
-        display: "grid",
-        gridTemplateColumns: { 
-          xs: "repeat(2, 1fr)", 
-          sm: "repeat(2, 1fr)", 
-          md: "repeat(4, 1fr)" 
-        },
-        gap: { xs: 1.5, sm: 2 },
-        mb: { xs: 2, md: 3 }
-      }}>
-        <Card sx={{ 
-          border: "1px solid",
-          borderColor: "divider",
-          transition: "all 0.2s ease-in-out",
-          "&:hover": { transform: "translateY(-1px)", boxShadow: 3 }
-        }}>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "repeat(2, 1fr)",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(4, 1fr)",
+          },
+          gap: { xs: 1.5, sm: 2 },
+          mb: { xs: 2, md: 3 },
+        }}
+      >
+        <Card
+          sx={{
+            border: "1px solid",
+            borderColor: "divider",
+            transition: "all 0.2s ease-in-out",
+            "&:hover": { transform: "translateY(-1px)", boxShadow: 3 },
+          }}
+        >
           <CardContent sx={{ p: { xs: 1.5, sm: 2 } }}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Storage sx={{ color: "success.main", mr: 2 }} />
               <Box>
-                <Typography 
-                  variant="h6" 
+                <Typography
+                  variant="h6"
                   sx={{ fontSize: { xs: "1rem", sm: "1.25rem" } }}
                 >
                   {indices.length}
                 </Typography>
-                <Typography 
-                  variant="body2" 
+                <Typography
+                  variant="body2"
                   color="text.secondary"
                   sx={{ fontSize: { xs: "0.75rem", sm: "0.875rem" } }}
                 >
@@ -210,12 +216,14 @@ export const ManageIndices = () => {
           </CardContent>
         </Card>
 
-        <Card sx={{ 
-          border: "1px solid",
-          borderColor: "divider",
-          transition: "all 0.2s ease-in-out",
-          "&:hover": { transform: "translateY(-1px)", boxShadow: 3 }
-        }}>
+        <Card
+          sx={{
+            border: "1px solid",
+            borderColor: "divider",
+            transition: "all 0.2s ease-in-out",
+            "&:hover": { transform: "translateY(-1px)", boxShadow: 3 },
+          }}
+        >
           <CardContent sx={{ p: { xs: 1.5, sm: 2 } }}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Box
@@ -228,14 +236,14 @@ export const ManageIndices = () => {
                 }}
               />
               <Box>
-                <Typography 
-                  variant="h6" 
+                <Typography
+                  variant="h6"
                   sx={{ fontSize: { xs: "1rem", sm: "1.25rem" } }}
                 >
                   {indices.filter((i) => i.health === "green").length}
                 </Typography>
-                <Typography 
-                  variant="body2" 
+                <Typography
+                  variant="body2"
                   color="text.secondary"
                   sx={{ fontSize: { xs: "0.75rem", sm: "0.875rem" } }}
                 >
@@ -246,12 +254,14 @@ export const ManageIndices = () => {
           </CardContent>
         </Card>
 
-        <Card sx={{ 
-          border: "1px solid",
-          borderColor: "divider",
-          transition: "all 0.2s ease-in-out",
-          "&:hover": { transform: "translateY(-1px)", boxShadow: 3 }
-        }}>
+        <Card
+          sx={{
+            border: "1px solid",
+            borderColor: "divider",
+            transition: "all 0.2s ease-in-out",
+            "&:hover": { transform: "translateY(-1px)", boxShadow: 3 },
+          }}
+        >
           <CardContent sx={{ p: { xs: 1.5, sm: 2 } }}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Box
@@ -264,14 +274,14 @@ export const ManageIndices = () => {
                 }}
               />
               <Box>
-                <Typography 
-                  variant="h6" 
+                <Typography
+                  variant="h6"
                   sx={{ fontSize: { xs: "1rem", sm: "1.25rem" } }}
                 >
                   {indices.filter((i) => i.health === "yellow").length}
                 </Typography>
-                <Typography 
-                  variant="body2" 
+                <Typography
+                  variant="body2"
                   color="text.secondary"
                   sx={{ fontSize: { xs: "0.75rem", sm: "0.875rem" } }}
                 >
@@ -282,12 +292,14 @@ export const ManageIndices = () => {
           </CardContent>
         </Card>
 
-        <Card sx={{ 
-          border: "1px solid",
-          borderColor: "divider",
-          transition: "all 0.2s ease-in-out",
-          "&:hover": { transform: "translateY(-1px)", boxShadow: 3 }
-        }}>
+        <Card
+          sx={{
+            border: "1px solid",
+            borderColor: "divider",
+            transition: "all 0.2s ease-in-out",
+            "&:hover": { transform: "translateY(-1px)", boxShadow: 3 },
+          }}
+        >
           <CardContent sx={{ p: { xs: 1.5, sm: 2 } }}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Box
@@ -300,14 +312,14 @@ export const ManageIndices = () => {
                 }}
               />
               <Box>
-                <Typography 
-                  variant="h6" 
+                <Typography
+                  variant="h6"
                   sx={{ fontSize: { xs: "1rem", sm: "1.25rem" } }}
                 >
                   {indices.filter((i) => i.health === "red").length}
                 </Typography>
-                <Typography 
-                  variant="body2" 
+                <Typography
+                  variant="body2"
                   color="text.secondary"
                   sx={{ fontSize: { xs: "0.75rem", sm: "0.875rem" } }}
                 >
@@ -327,11 +339,13 @@ export const ManageIndices = () => {
       )}
 
       {/* 인덱스 테이블 */}
-      <Card sx={{ 
-        border: "1px solid", 
-        borderColor: "divider",
-        overflow: "auto",
-      }}>
+      <Card
+        sx={{
+          border: "1px solid",
+          borderColor: "divider",
+          overflow: "auto",
+        }}
+      >
         <TableContainer>
           <Table>
             <TableHead>

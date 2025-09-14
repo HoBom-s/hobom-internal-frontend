@@ -1,63 +1,51 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Box,
-  Avatar,
-  useTheme,
-} from "@mui/material";
-import {
-  Menu as MenuIcon,
-  Search as SearchIcon,
-  Notifications as NotificationsIcon,
-  AccountCircle,
-} from "@mui/icons-material";
-import { useLayout } from "@/app/providers/layout-provider";
+import { AppBar, Toolbar, Box, IconButton, useTheme } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useLayout } from "../../../app/providers/layout-provider";
+
+const DRAWER_WIDTH = 280;
 
 export const AppHeader = () => {
   const theme = useTheme();
-  const { toggleSidebar, isMobile } = useLayout();
+  const { isMobile, toggleSidebar } = useLayout();
 
   return (
     <AppBar
       position="fixed"
       sx={{
-        zIndex: theme.zIndex.drawer + 1,
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.text.primary,
+        width: isMobile ? "100%" : `calc(100% - ${DRAWER_WIDTH}px)`,
+        ml: isMobile ? 0 : `${DRAWER_WIDTH}px`,
+        boxShadow: "none",
+        backgroundColor: theme.palette.primary.dark,
+        backgroundImage: "none",
+        border: "none",
       }}
     >
-      <Toolbar>
-        {isMobile && (
+      <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Box sx={{ display: { xs: "flex", md: "none" } }}>
           <IconButton
-            color="inherit"
-            aria-label="메뉴 열기"
+            aria-label="open sidebar"
             onClick={toggleSidebar}
-            edge="start"
-            sx={{ mr: 2 }}
+            sx={{
+              color: theme.palette.text.secondary,
+              mr: 1,
+            }}
           >
             <MenuIcon />
           </IconButton>
-        )}
-
-        <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-          Analytics Hub
-        </Typography>
+        </Box>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <IconButton color="inherit">
-            <SearchIcon />
-          </IconButton>
-
-          <IconButton color="inherit">
+          <IconButton
+            sx={{
+              color: theme.palette.text.secondary,
+              "&:hover": {
+                backgroundColor: theme.palette.primary.dark,
+                color: theme.palette.text.primary,
+              },
+            }}
+          >
             <NotificationsIcon />
-          </IconButton>
-
-          <IconButton color="inherit">
-            <Avatar sx={{ width: 32, height: 32 }}>
-              <AccountCircle />
-            </Avatar>
           </IconButton>
         </Box>
       </Toolbar>

@@ -1,4 +1,4 @@
-import { ManageIndices } from "../../features/manage-indices";
+import { ManageIndices } from "@/features/manage-indices";
 
 const IndexManagementPage = () => {
   return <ManageIndices />;
